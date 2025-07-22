@@ -15,5 +15,22 @@
     {% if error %}
         <p style="color:red;">{{ error }}</p>
     {% endif %}
+    <h2>Shortened URLs</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Short URL</th>
+                <th>Original URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for url in urls %}
+                <tr>
+                    <td><a href="/{{ url.key }}">{{ request.base_url }}{{ url.key }}</a></td>
+                    <td>{{ url.long_url }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>
